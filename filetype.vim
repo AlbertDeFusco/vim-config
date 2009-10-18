@@ -25,6 +25,18 @@ augroup filetypedetect
 	autocmd BufNewFile,BufRead /private/var/log/apache2/*_log set filetype=messages
 	autocmd BufNewFile,BufRead /var/log/system.log* set filetype=messages
 	autocmd BufNewFile,BufRead /var/folders/*/sql* set filetype=sql
+	" Git
+	autocmd BufNewFile,BufRead *.git/COMMIT_EDITMSG    set filetype=gitcommit
+	autocmd BufNewFile,BufRead *.git/config,.gitconfig set filetype=gitconfig
+	autocmd BufNewFile,BufRead git-rebase-todo         set filetype=gitrebase
+	autocmd BufNewFile,BufRead .msg.[0-9]*
+				\ if getline(1) =~ '^From.*# This line is ignored.$' |
+				\   set filetype=gitsendemail |
+				\ endif
+	autocmd BufNewFile,BufRead *.git/**
+				\ if getline(1) =~ '^\x\{40\}\>\|^ref: ' |
+				\   set filetype=git |
+				\ endif
 	autocmd BufNewFile,BufRead *.gitmodules set filetype=gitconfig
 augroup END
 
