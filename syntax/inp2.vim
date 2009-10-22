@@ -115,8 +115,8 @@ syn region inpFragnameCard start="\(coordinates\|monopoles\|dipoles\|quadrupoles
 
 "The general input $group
 "There may be other types of comments I am not aware of
-syn match inpDeck "\(^\s\$[a-z0-9]\+\|\$end\)" display contained contains=cards,inpError
-syn region inpDeckGroup start="^\s\$[a-z0-9]\+" end="\$end" transparent keepend contains=inpError,inpDeck,inpKeyword,inpLineComment,inpNumber,inpBoolean
+syn match inpDeck "\(^\s\$[a-z0-9]\+\|\$end\)" transparent contained contains=cards,inpError,inpEnd
+syn region inpDeckGroup start="^\s\$[a-z0-9]\+" end="\$end" display keepend contains=inpError,inpDeck,inpKeyword,inpLineComment,inpNumber,inpBoolean
 
 "syn region ContrlDeck start="^\s\$contrl " end="\$end" display keepend contains=inpDeck,inpLineComment,inpNumber,ContrlKey,inpBoolean,inpError
 "syn region SystemDeck start="^\s\$system " end="\$end" display keepend contains=inpDeck,inpLineComment,inpNumber,SystemKey,inpBoolean,inpError
@@ -173,6 +173,7 @@ if version >= 508 || !exists("did_inp_syn_inits")
 	HiLink inpFragGrad	Identifier
 
 	HiLink inpDeck		Type
+	HiLink inpEnd           Type
 	HiLink cards		Type
 	"HiLink inpEnd		Type
 	"HiLink contrl           Keyword
