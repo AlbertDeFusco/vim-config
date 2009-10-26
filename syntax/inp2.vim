@@ -43,6 +43,9 @@ syn match inpComment "."
 syn match inpError "^\$[a-z0-9]\+" 
 syn match inpError "\t"
 "syn match inpKeyEr "[a-z0-9]\+ " contains=ALLBUT,contrl
+"GAMESS will not read past column number 80
+"Does this apply to comments as well?
+syn match inpError excludenl "^.\{81,}$"lc=80 contained 
 
 "Anyhting after here will be highlighted only when they are explicitely
 "contained in a region (i.e. a $group).
@@ -139,15 +142,12 @@ syn region inpFragname start="^\s\$[a-z0-9]\+.*\n.*\n\s*coordinates" end="\$end"
 "set foldmethod=syntax to use
 syn region inpFragname start="^\s\$[a-z0-9]\+.*\n.*\n\s*coordinates" end="\$end" transparent keepend fold extend
 syn region inpCedata start="^\s\$cedata" end="\$end" extend fold transparent keepend
+syn region inpVec start="^\s\$vec" end="\$end" extend fold transparent keepend
 "The $MD as written in a .trj file
 syn region inpMD start="^\s\$md.\+\ntvelqm(1)=" end="\$end" extend fold transparent keepend 
 "This is a very slow way to fold a $vec
 "  Once the file is open, you can do /$vec<cr>zf/end
-"syn region inpVec start="^\s\$vec" end="\$end" extend fold transparent keepend
 
-"GAMESS will not read past column number 80
-"Does this apply to comments as well?
-syn match inpError excludenl "^.\{81,}$"lc=80 contained 
 
 " Define the default highlighting.
 " For version 5.7 and earlier: only when not done already
