@@ -152,6 +152,9 @@ syntax region wikiRef matchgroup=htmlTag start="<bibref>" end="</bibref>" skip="
 syn include @Fortran syntax/fortran.vim
 syntax region fortranCode matchgroup=htmlTag start="<code>\[fortran,N\]" end="</code>" skip="<nowiki>.*</nowiki>" contains=@Fortran
 
+syn region gnuplot start="<gnuplot>" end="</gnuplot>" fold 
+syn region plotdata start="<plotdata>" end="</plotdata>" fold 
+syn region jmol start="<jmol>" end="</jmol>" fold 
 
 " HTML highlighting
 
