@@ -139,7 +139,7 @@ syn region wikiLink start="\[ftp:" end="\]" skip="<nowiki>.*</nowiki>" oneline
 syn region wikiLink start="\[gopher:" end="\]" skip="<nowiki>.*</nowiki>" oneline
 syn region wikiLink start="\[news:" end="\]" skip="<nowiki>.*</nowiki>" oneline
 syn region wikiLink start="\[mailto:" end="\]" skip="<nowiki>.*</nowiki>" oneline
-syn region wikiTemplate start="{{" end="}}" skip="<nowiki>.*</nowiki>" 
+syn region wikiTemplate start="{{" end="}}" skip="<nowiki>.*</nowiki>" fold
 
 syn match wikiParaFormatChar /^[\:|\*|;|#]\+/
 syn match wikiParaFormatChar /^-----*/
