@@ -95,7 +95,7 @@ syn match inpBoolean "\.\(true\|false\|t\|f\)\." contained
 
 
 "This applies to $data, $efrag, and $grad
-syn match inpAtomCart "^[a-z0-9]\{1,10\}\s\+-\?\([0-9]\|\.\).*" contains=inpNumber contained
+syn match inpAtomCart "^[ a-z0-9]\{1,10\}\s\+-\?\([0-9]\|\.\).*" contains=inpNumber contained
 "Fragment gradients are special
 syn match inpFragGrad "^FRAG\(\s[0-9]\|[0-9]\{2\}\|\*\*\).*" contains=inpNumber contained
 "These are all the symmetry point groups allowed in $data
