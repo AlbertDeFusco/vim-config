@@ -129,7 +129,7 @@ syn region inpDeckGroup start="^\s\$[a-z0-9]\+" end="\$end" display keepend cont
 "$data,grad,efrag are a special type of group
 syn region inpData start="^\s\$data" end="\$end" transparent keepend contains=inpDeck,inpAtomCart,inpSym,inpError
 syn region inpGrad start="^\s\$grad" end="\$end" transparent keepend contains=inpDeck,inpAtomCart,inpError,inpKeyword,inpFragGrad
-syn region inpEfrag start="^\s\$efrag" end="\$end" transparent keepend contains=inpError,inpDeck,inpKeyword,inpFragNum,inpAtomCart
+syn region inpEfrag start="^\s\$efrag" end="\$end" transparent keepend contains=inpError,inpDeck,inpKeyword,inpFragNum,inpAtomCart,inpLineComment
 
 "MD runs produce a .trj file (also highlighted by this file)
 "Saved timesteps are contained in a MD DATA PACKET followed by $md group
