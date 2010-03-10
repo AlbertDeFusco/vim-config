@@ -23,6 +23,7 @@ augroup filetypedetect
 	autocmd BufNewFile,BufRead bash-fc-[0-9]* set filetype=sh
 	autocmd BufNewFile,BufRead /private/var/log/system.log* set filetype=messages
 	autocmd BufNewFile,BufRead /private/var/log/apache2/*_log set filetype=messages
+	autocmd BufNewFile,BufRead /opt/local/apache2/logs/*_log set filetype=messages
 	autocmd BufNewFile,BufRead /var/log/system.log* set filetype=messages
 	autocmd BufNewFile,BufRead /var/folders/*/sql* set filetype=sql
 	autocmd BufNewFile,BufRead Makefile.inc set filetype=make
