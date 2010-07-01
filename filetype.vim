@@ -19,6 +19,7 @@ augroup filetypedetect
 	autocmd BufNewFile,BufRead *.gnuplot set filetype=gnuplot
 	autocmd BufNewFile,BufRead *.gp set filetype=gnuplot
 	autocmd BufNewFile,BufRead vimperator-localhost.tmp,*ResearchWiki.safari,*.researchwiki set filetype=mediawiki |
+	autocmd BufNewFile,BufRead vimperator-defusco.msg.chem.iastate.edu.tmp,*ResearchWiki.safari,*.researchwiki set filetype=mediawiki |
 	                         \ set foldmethod=syntax
 	autocmd BufNewFile,BufRead bash-fc-[0-9]* set filetype=sh
 	autocmd BufNewFile,BufRead /private/var/log/system.log* set filetype=messages
