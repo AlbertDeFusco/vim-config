@@ -124,6 +124,8 @@ let g:Tex_ViewRule_pdf = 'Skim'
 let g:Tex_ViewRule_dvi = 'Skim'
 let g:Tex_ViewRule_ps = 'Skim'
 let g:Tex_MultipleCompileFormats = 'pdf,dvi,ps'
+"let g:Tex_CompileRule_pdf = 'pdfatex -interaction=nonstopmode $*'
+let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_Folding=0
 set shcf=-cl
 set linebreak
@@ -145,4 +147,4 @@ let g:git_branch_status_nogit=""
 "set rulerformat=%17(%l,%c%V%=%5(%P%)%)
 set rulerformat=%27(%{GitBranchInfoString()}%(%17(%l,%c%V%=%5(%P%)%)%)%)
 set efm=%E%f:%l.%c:,%E%f:%l:,%C,%C%p%*[0123456789^],%ZError:\ %m,%C%.%#
-set directory=~/tmp,/var/tmp,/tmp
+set directory=~/.tmp,/var/tmp,/tmp
