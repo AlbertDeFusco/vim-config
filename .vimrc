@@ -137,6 +137,7 @@ set autoindent
 set mousefocus
 runtime macros/matchit.vim
 set backupcopy=yes
+set nobackup
 "set backupcopy+=breaksymlink
 
 hi Comment guifg=#0033ff
