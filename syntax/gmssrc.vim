@@ -20,10 +20,84 @@ elseif exists("b:current_syntax")
   finish
 endif
 
+" let b:fortran_dialect = fortran_dialect if set correctly by user
+if exists("fortran_dialect")
+  if fortran_dialect =~ '\<\(f\(9[05]\|77\)\|elf\|F\)\>'
+    let b:fortran_dialect = matchstr(fortran_dialect,'\<\(f\(9[05]\|77\)\|elf\|F\)\>')
+  else
+    echohl WarningMsg | echo "Unknown value of fortran_dialect" | echohl None
+    let b:fortran_dialect = "unknown"
+  endif
+else
+  let b:fortran_dialect = "unknown"
+endif
 
-let b:fortran_dialect = "f77"
-let b:fortran_fixed_source = 1
+" fortran_dialect not set or set incorrectly by user,
+if b:fortran_dialect == "unknown"
+  " set b:fortran_dialect from directive in first three lines of file
+  let b:fortran_retype = getline(1)." ".getline(2)." ".getline(3)
+  if b:fortran_retype =~ '\<fortran_dialect\s*=\s*F\>'
+    let b:fortran_dialect = "F"
+  elseif b:fortran_retype =~ '\<fortran_dialect\s*=\s*elf\>'
+    let b:fortran_dialect = "elf"
+  elseif b:fortran_retype =~ '\<fortran_dialect\s*=\s*f90\>'
+    let b:fortran_dialect = "f90"
+  elseif b:fortran_retype =~ '\<fortran_dialect\s*=\s*f95\>'
+    let b:fortran_dialect = "f95"
+  elseif b:fortran_retype =~ '\<fortran_dialect\s*=\s*f77\>'
+    let b:fortran_dialect = "f77"
+  else
+    " no directive found, so assume f95
+    let b:fortran_dialect = "f95"
+  endif
+  unlet b:fortran_retype
+endif
 
+" Choose between fixed and free source form if this hasn't been done yet
+if !exists("b:fortran_fixed_source")
+  if b:fortran_dialect == "elf" || b:fortran_dialect == "F"
+    " elf and F require free source form
+    let b:fortran_fixed_source = 0
+  elseif b:fortran_dialect == "f77"
+    " f77 requires fixed source form
+    let b:fortran_fixed_source = 1
+  elseif exists("fortran_free_source")
+    " User guarantees free source form for all f90 and f95 files
+    let b:fortran_fixed_source = 0
+  elseif exists("fortran_fixed_source")
+    " User guarantees fixed source form for all f90 and f95 files
+    let b:fortran_fixed_source = 1
+  else
+    " f90 and f95 allow both fixed and free source form.
+    " Assume fixed source form unless signs of free source form
+    " are detected in the first five columns of the first b:lmax lines.
+    " Detection becomes more accurate and time-consuming if more lines
+    " are checked. Increase the limit below if you keep lots of comments at
+    " the very top of each file and you have a fast computer.
+    let b:lmax = 250
+    if ( b:lmax > line("$") )
+      let b:lmax = line("$")
+    endif
+    let b:fortran_fixed_source = 1
+    let b:ln=1
+    while b:ln <= b:lmax
+      let b:test = strpart(getline(b:ln),0,5)
+      if b:test[0] !~ '[Cc*!#]' && b:test !~ '^ \+[!#]' && b:test =~ '[^ 0-9\t]'
+	let b:fortran_fixed_source = 0
+	break
+      endif
+      let b:ln = b:ln + 1
+    endwhile
+    unlet b:lmax b:ln b:test
+  endif
+endif
+
+let b:fortran_dialect="f95"
+let b:fortran_do_enddo=1
+let b:fortran_fixed_source=1
+setlocal sw=3
+setlocal expandtab
+setlocal ic
 
 syn case ignore
 
@@ -235,18 +309,17 @@ if (b:fortran_fixed_source == 1)
   endif
   syn match fortranComment		excludenl "^[!c*].*$" contains=@fortranCommentGroup
   syn match fortranLeftMargin		transparent "^ \{5}"
-  syn match fortranContinueMark		display "^ \{5}\S"lc=5
+  syn match fortranContinueMark		display "^.\{5}\S"lc=5
 else
   syn match fortranContinueMark		display "&"
 endif
 
-"if b:fortran_dialect != "f77"
+if b:fortran_dialect != "f77"
   syn match fortranComment	excludenl "!.*$" contains=@fortranCommentGroup,@spell
-"endif
+endif
 
 " Highlight conflict markers
-
-syn match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+"syn match ErrorMsg '^\(<\|=\|>\||\)\{7\}\([^=].\+\)\?$'
 
 "cpp is often used with Fortran
 syn match	cPreProc		"^\s*#\s*\(define\|ifdef\)\>.*"
@@ -421,6 +494,6 @@ if version >= 508 || !exists("did_fortran_syn_inits")
   delcommand HiLink
 endif
 
-let b:current_syntax = "fortran"
+let b:current_syntax = "gmssrc"
 
 " vim: ts=8 tw=132
