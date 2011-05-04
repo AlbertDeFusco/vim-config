@@ -125,6 +125,8 @@ let g:Tex_ViewRule_pdf = 'Skim'
 let g:Tex_ViewRule_dvi = 'Skim'
 let g:Tex_ViewRule_ps = 'Skim'
 let g:Tex_MultipleCompileFormats = 'pdf,dvi,ps'
+"let g:Tex_CompileRule_pdf = 'pdfatex -interaction=nonstopmode $*'
+let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_Folding=0
 set shcf=-cl
 set linebreak
@@ -133,12 +135,12 @@ set encoding=utf-8
 "set smarttab
 set autoread
 set smartindent
-set autoindent
+"set autoindent
 set mousefocus
 runtime macros/matchit.vim
-"set backupcopy=yes
-"set backupcopy+=breaksymlink
+set backupcopy=yes
 set nobackup
+"set backupcopy+=breaksymlink
 
 hi Comment guifg=#0033ff
 let g:git_branch_status_head_current=1
