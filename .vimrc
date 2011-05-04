@@ -102,6 +102,7 @@ endif
 
 
 set diffopt+=iwhite
+set diffopt+=vertical
 "case-insensitive search
 "set ic
 "bash-like tab completion
@@ -130,12 +131,14 @@ set linebreak
 set encoding=utf-8
 
 "set smarttab
+set autoread
 set smartindent
 set autoindent
 set mousefocus
 runtime macros/matchit.vim
-set backupcopy=yes
+"set backupcopy=yes
 "set backupcopy+=breaksymlink
+set nobackup
 
 hi Comment guifg=#0033ff
 let g:git_branch_status_head_current=1
@@ -144,3 +147,5 @@ let g:git_branch_status_text=""
 let g:git_branch_status_nogit=""
 "set rulerformat=%17(%l,%c%V%=%5(%P%)%)
 set rulerformat=%27(%{GitBranchInfoString()}%(%17(%l,%c%V%=%5(%P%)%)%)%)
+set efm=%E%f:%l.%c:,%E\ In\ file\ %f:%l,%C,%C%p%*[0123456789^],%ZError:\ %m,%C%.%#
+

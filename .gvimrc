@@ -12,4 +12,5 @@ endif
 set lines=35
 set columns=100
 set guicursor=a:hor10-blinkon0
-set guifont=Monaco:h12
+set guifont=Monaco\ bold\ 9
+set guioptions-=m
