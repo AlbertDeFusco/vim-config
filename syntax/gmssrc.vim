@@ -319,7 +319,7 @@ if b:fortran_dialect != "f77"
 endif
 
 " Highlight conflict markers
-"syn match ErrorMsg '^\(<\|=\|>\||\)\{7\}\([^=].\+\)\?$'
+syn match ErrorMsg '^\(<\|=\|>\||\)\{7\}\([^=].\+\)\?$'
 
 "cpp is often used with Fortran
 syn match	cPreProc		"^\s*#\s*\(define\|ifdef\)\>.*"
