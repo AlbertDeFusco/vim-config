@@ -13,8 +13,7 @@ augroup filetypedetect
 	autocmd BufNewFile,BufRead *.gamess set filetype=gamess
 	autocmd BufNewFile,BufRead *.gnuplot set filetype=gnuplot
 	autocmd BufNewFile,BufRead *.gp set filetype=gnuplot
-	autocmd BufNewFile,BufRead pentadactyl-localhost.tmp, albertdefuscoworkbook.local*.txt, defusco.msg.chem.iastate.edu*.txt, pentadactyl-albertdefuscoworkbook.local.tmp, pentadactyl-defusco.msg.chem.iastate.edu.tmp, vimperator-localhost.tmp, vimperator-albertdefuscoworkbook.local*.tmp, *ResearchWiki*, *ResearchWiki.safari, *.researchwiki set filetype=mediawiki |
-				\ set foldmethod=syntax
+	autocmd BufNewFile,BufRead vimperator-*.tmp set filetype=mediawiki 
 	autocmd BufNewFile,BufRead bash-fc-[0-9]* set filetype=sh
 	autocmd BufNewFile,BufRead /private/var/log/system.log* set filetype=messages
 	autocmd BufNewFile,BufRead /private/var/log/secure.log* set filetype=messages
