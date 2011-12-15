@@ -718,7 +718,7 @@ fragname 	gamess_input.txt	/^\$FRAGNAME group
 fragname 	gamess_input.txt	/^\$FRAGNAME group
 fragname 	gamess_input.txt	/^\$FRAGNAME group
 frgrpl 	gamess_input.txt	/^\$FRGRPL group
-gamess	gamess_input.txt	/(21 May 2009)$
+gamess	gamess_input.txt	/Section 2 - Input Description
 gamma 	gamess_input.txt	/^\$GAMMA group
 gcilst 	gamess_input.txt	/^\$GCILST group
 gddi 	gamess_input.txt	/^\$GDDI group
