@@ -96,15 +96,15 @@ if !exists(":DiffOrig")
 endif
 
 if &term =~ "xterm"
-if has("terminfo")
-set t_Co=8
-set t_Sf=[3%p1%dm
-set t_Sb=[4%p1%dm
-else
-set t_Co=8
-set t_Sf=[3%dm
-set t_Sb=[4%dm
-endif
+  if has("terminfo")
+    set t_Co=8
+    set t_Sf=[3%p1%dm
+    set t_Sb=[4%p1%dm
+  else
+    set t_Co=8
+    set t_Sf=[3%dm
+    set t_Sb=[4%dm
+  endif
 endif
 
 
@@ -158,3 +158,8 @@ let g:git_branch_status_nogit=""
 set rulerformat=%27(%{GitBranchInfoString()}%(%17(%l,%c%V%=%5(%P%)%)%)%)
 set efm=%E%f:%l.%c:,%E\ In\ file\ %f:%l,%C,%C%p%*[0123456789^],%ZError:\ %m,%C%.%#
 
+set shiftwidth=2
+
+if has("unix")
+  set background=light
+endif
