@@ -3,12 +3,7 @@ if exists("did_load_filetypes")
 endif
 
 augroup filetypedetect
-	autocmd BufNewFile,BufRead *.src 
-	   \ set filetype=fortran |
-	   \ let fortran_dialect = "f77" |
-	   \ let fortran_do_enddo=1 |
-	   \ let fortran_fixed_source=1 |
-	   \ set sw=3 
+	autocmd BufNewFile,BufRead *.src set ft=gmssrc 
 	autocmd BufNewFile,BufRead *.code set filetype=fortran
 	autocmd BufNewFile,BufRead *.inp set filetype=inp2
 	autocmd BufNewFile,BufRead *.dat set filetype=inp2
@@ -18,14 +13,14 @@ augroup filetypedetect
 	autocmd BufNewFile,BufRead *.gamess set filetype=gamess
 	autocmd BufNewFile,BufRead *.gnuplot set filetype=gnuplot
 	autocmd BufNewFile,BufRead *.gp set filetype=gnuplot
-	autocmd BufNewFile,BufRead vimperator-localhost.tmp,*ResearchWiki.safari,*.researchwiki set filetype=mediawiki |
-	autocmd BufNewFile,BufRead vimperator-defusco.msg.chem.iastate.edu.tmp,*ResearchWiki.safari,vimperator-*,*.researchwiki set filetype=mediawiki |
-	                         \ set foldmethod=syntax
+	autocmd BufNewFile,BufRead vimperator-*.tmp set filetype=mediawiki 
 	autocmd BufNewFile,BufRead bash-fc-[0-9]* set filetype=sh
 	autocmd BufNewFile,BufRead /private/var/log/system.log* set filetype=messages
+	autocmd BufNewFile,BufRead /private/var/log/secure.log* set filetype=messages
 	autocmd BufNewFile,BufRead /private/var/log/apache2/*_log set filetype=messages
 	autocmd BufNewFile,BufRead /opt/local/apache2/logs/*_log set filetype=messages
 	autocmd BufNewFile,BufRead /var/log/system.log* set filetype=messages
+	autocmd BufNewFile,BufRead /var/log/secure.log* set filetype=messages
 	autocmd BufNewFile,BufRead /var/folders/*/sql* set filetype=sql
 	autocmd BufNewFile,BufRead Makefile.inc set filetype=make
 	" Git
