@@ -4,8 +4,9 @@ endif
 
 augroup filetypedetect
 	au  BufNewFile,BufReadPost *.lmp set ft=lammps
-	au  BufNewFile,BufReadPost in.* set ft=lammps
-	au  BufNewFile,BufReadPost data.* set ft=lammps
+	au  BufNewFile,BufReadPost *.lmpdat set ft=lammps
+	au  BufNewFile,BufReadPost *.lammps set ft=lammps
+
 	autocmd BufNewFile,BufRead *.src set ft=gmssrc 
 	autocmd BufNewFile,BufRead *.code set filetype=fortran
 	autocmd BufNewFile,BufRead *.cocof set filetype=fortran
@@ -18,7 +19,7 @@ augroup filetypedetect
 	autocmd BufNewFile,BufRead *.gamess set filetype=gamess
 	autocmd BufNewFile,BufRead *.gnuplot set filetype=gnuplot
 	autocmd BufNewFile,BufRead *.gp set filetype=gnuplot
-	autocmd BufNewFile,BufRead pentadactyl-localhost.tmp, albertdefuscoworkbook.local*.txt, defusco.msg.chem.iastate.edu*.txt, pentadactyl-albertdefuscoworkbook.local.tmp, pentadactyl-defusco.msg.chem.iastate.edu.tmp, vimperator-localhost.tmp, vimperator-albertdefuscoworkbook.local*.tmp, *ResearchWiki*, *ResearchWiki.safari, *.researchwiki set filetype=mediawiki |
+	autocmd BufNewFile,BufRead vimperator-*.tmp set filetype=mediawiki |
 				\ set foldmethod=syntax
 	autocmd BufNewFile,BufRead bash-fc-[0-9]* set filetype=sh
 	autocmd BufNewFile,BufRead /private/var/log/system.log* set filetype=messages
