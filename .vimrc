@@ -127,10 +127,16 @@ set wildmenu
 map <F2> :h gamess<cr>
 "nmap <F4> /$VEC<cr>zf/END<cr>
 set printoptions=paper:letter
-"let g:Tex_ViewRule_pdf = 'Preview'
-let g:Tex_ViewRule_pdf = 'Skim'
-let g:Tex_ViewRule_dvi = 'Skim'
-let g:Tex_ViewRule_ps = 'Skim'
+if has("macunix")
+  "let g:Tex_ViewRule_pdf = 'Preview'
+  let g:Tex_ViewRule_pdf = 'Skim'
+  let g:Tex_ViewRule_dvi = 'Skim'
+  let g:Tex_ViewRule_ps = 'Skim'
+else
+  let g:Tex_ViewRule_pdf = 'acroread'
+  let g:Tex_ViewRule_dvi = 'okular'
+  let g:Tex_ViewRule_ps = 'okular'
+endif
 let g:Tex_MultipleCompileFormats = 'pdf,dvi,ps'
 "let g:Tex_CompileRule_pdf = 'pdfatex -interaction=nonstopmode $*'
 let g:Tex_DefaultTargetFormat='pdf'

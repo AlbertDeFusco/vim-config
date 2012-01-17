@@ -2,6 +2,9 @@
 "	  Language: LaTeX (ft=tex)
 "	Maintainer: Srinath Avadhanula
 "		 Email: srinath@fastmail.fm
+if has("unix")
+  finish
+endif
 
 if !exists('s:initLatexSuite')
 	let s:initLatexSuite = 1
