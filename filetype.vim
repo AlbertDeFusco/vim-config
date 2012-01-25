@@ -12,11 +12,13 @@ augroup filetypedetect
 	autocmd BufNewFile,BufRead *.cocof set filetype=fortran
 	autocmd BufNewFile,BufRead *.coco set filetype=fortran
 	autocmd BufNewFile,BufRead *.inp set filetype=inp2
+	autocmd BufNewFile,BufRead *.gamin set filetype=inp2
 	autocmd BufNewFile,BufRead *.dat set filetype=inp2
 	autocmd BufNewFile,BufRead *.irc set filetype=inp2
 	autocmd BufNewFile,BufRead *.trj set filetype=inp2
 	autocmd BufNewFile,BufRead *.efp set filetype=inp2
 	autocmd BufNewFile,BufRead *.gamess set filetype=gamess
+	autocmd BufNewFile,BufRead *.gamout set filetype=gamess
 	autocmd BufNewFile,BufRead *.gnuplot set filetype=gnuplot
 	autocmd BufNewFile,BufRead *.gp set filetype=gnuplot
 	autocmd BufNewFile,BufRead vimperator-*.tmp set filetype=mediawiki 
@@ -29,6 +31,7 @@ augroup filetypedetect
 	autocmd BufNewFile,BufRead /var/log/secure.log* set filetype=messages
 	autocmd BufNewFile,BufRead /var/folders/*/sql* set filetype=sql
 	autocmd BufNewFile,BufRead Makefile.inc set filetype=make
+	autocmd BufNewFile,BufRead *.f90 let b:fortran_do_enddo=1
 	" Git
 	"autocmd BufNewFile,BufRead *.git/COMMIT_EDITMSG    set filetype=gitcommit
 	"autocmd BufNewFile,BufRead *.git/config,.gitconfig set filetype=gitconfig

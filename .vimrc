@@ -148,7 +148,7 @@ set encoding=utf-8
 "set smarttab
 set autoread
 set smartindent
-"set autoindent
+set autoindent
 set mousefocus
 runtime macros/matchit.vim
 set backupcopy=yes
