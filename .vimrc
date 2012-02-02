@@ -162,7 +162,7 @@ let g:git_branch_status_text=""
 let g:git_branch_status_nogit=""
 "set rulerformat=%17(%l,%c%V%=%5(%P%)%)
 set rulerformat=%27(%{GitBranchInfoString()}%(%17(%l,%c%V%=%5(%P%)%)%)%)
-set efm=%E%f:%l.%c:,%E\ In\ file\ %f:%l,%C,%C%p%*[0123456789^],%ZError:\ %m,%C%.%#
+"set efm=%E%f:%l.%c:,%E\ In\ file\ %f:%l,%C,%C%p%*[0123456789^],%ZError:\ %m,%C%.%#
 
 set shiftwidth=2
 
