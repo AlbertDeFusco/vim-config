@@ -153,6 +153,7 @@ set mousefocus
 runtime macros/matchit.vim
 set backupcopy=yes
 set nobackup
+set expandtab
 "set backupcopy+=breaksymlink
 
 hi Comment guifg=#0033ff
@@ -169,3 +170,11 @@ set shiftwidth=2
 if has("unix")
   set background=light
 endif
+
+:highlight ExtraWhitespace ctermbg=red guibg=red
+" The following alternative may be less obtrusive.
+:highlight ExtraWhitespace ctermbg=darkgreen guibg=lightgreen
+" Try the following if your GUI uses a dark background.
+:highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+nnoremap <Leader>wn :match ExtraWhitespace /^\s* \s*\<Bar>\s\+$/<CR>
+nnoremap <Leader>wf :match<CR>

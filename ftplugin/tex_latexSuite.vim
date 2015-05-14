@@ -2,13 +2,10 @@
 "	  Language: LaTeX (ft=tex)
 "	Maintainer: Srinath Avadhanula
 "		 Email: srinath@fastmail.fm
-if has("unix")
-  finish
-endif
 
 if !exists('s:initLatexSuite')
 	let s:initLatexSuite = 1
-	exec 'so '.expand('<sfile>:p:h').'/latex-suite/main.vim'
+	exec 'so '.fnameescape(expand('<sfile>:p:h').'/latex-suite/main.vim')
 
 	silent! do LatexSuite User LatexSuiteInitPost
 endif
