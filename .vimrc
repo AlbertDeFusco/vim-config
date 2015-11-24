@@ -165,7 +165,7 @@ let g:git_branch_status_nogit=""
 set rulerformat=%27(%{GitBranchInfoString()}%(%17(%l,%c%V%=%5(%P%)%)%)%)
 "set efm=%E%f:%l.%c:,%E\ In\ file\ %f:%l,%C,%C%p%*[0123456789^],%ZError:\ %m,%C%.%#
 
-set shiftwidth=2
+set shiftwidth=4
 
 if has("unix")
   set background=light
