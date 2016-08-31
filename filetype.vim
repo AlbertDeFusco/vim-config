@@ -35,5 +35,7 @@ augroup filetypedetect
 
 	autocmd BufNewFile,BufRead Makefile.inc set filetype=make
 	autocmd BufNewFile,BufRead *.f90 let b:fortran_do_enddo=1
+
+        autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
