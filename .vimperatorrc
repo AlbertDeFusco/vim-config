@@ -1,5 +1,5 @@
 javascript liberator.beep = function() {return false;}
-set editor='bash -lc "mvim -f \$*" mvim '
+set editor="/opt/local/bin/mvim -f"
 set! ui.key.contentAccess=3
 set gui=nonavigation
 set complete=sl
