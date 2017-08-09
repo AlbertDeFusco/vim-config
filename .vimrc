@@ -178,3 +178,5 @@ endif
 :highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 nnoremap <Leader>wn :match ExtraWhitespace /^\s* \s*\<Bar>\s\+$/<CR>
 nnoremap <Leader>wf :match<CR>
+
+execute pathogen#infect()
